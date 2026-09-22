@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Elegância Criada Sob Medida | Cozinhas Planejadas</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        :root {
+            --bg-main: #070707;
+            --bg-surface: #111111;
+            --text-gray: #A8A8A8;
+            --text-white: #F5F5F2;
+            --border-metal: rgba(255, 255, 255, 0.08);
+            --accent: #C8A97E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Custom cursor */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background-color: var(--text-white);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+        }
+
+        .cursor.active {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(200, 169, 126, 0.2);
+            border: 1px solid var(--accent);
+            mix-blend-mode: normal;
+        }
+
+        /* Layout & Scroll Container */
+        .hero-track {
+            position: relative;
+            height: 350vh; /* Long scroll for the video to play */
+            width: 100%;
+        }
+
+        .hero-sticky {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Video Background */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transform-origin: center center;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+        }
+
+        /* Overlays */
+        .overlay-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(7, 7, 7, 0.9) 0%, rgba(7, 7, 7, 0.4) 40%, transparent 100%);
+            z-index: 2;
+        }
+
+        .overlay-vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, transparent 50%, rgba(7, 7, 7, 0.8) 150%);
+            z-index: 3;
+            box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
+        }
+
+        .overlay-darken {
+            position: absolute;
+            inset: 0;
+            background: rgba(7, 7, 7, 0);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        /* Content */
+        .content-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .eyebrow {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(5px);
+        }
+
+        .eyebrow::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background-color: var(--accent);
+        }
+
+        .headline {
+            font-size: clamp(48px, 6vw, 110px);
+            line-height: 1.05;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+            text-wrap: balance;
+        }
+
+        .headline .line {
+            display: block;
+            overflow: hidden;
+            padding-bottom: 10px; /* Prevent clipping */
+        }
+
+        .headline .line-inner {
+            display: block;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        .description {
+            font-size: clamp(16px, 1.2vw, 22px);
+            line-height: 1.6;
+            color: var(--text-gray);
+            max-width: 500px;
+            font-weight: 300;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(5px);
+        }
+
+        /* Button */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--border-metal);
+            padding: 18px 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            border-radius: 100px;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            width: fit-content;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--text-white);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-primary:hover {
+            color: var(--bg-main);
+            border-color: var(--text-white);
+            box-shadow: 0 0 20px rgba(255,255,255,0.05);
+            padding: 18px 48px; /* Subtle expansion */
+        }
+
+        .btn-primary:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-primary svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.5s ease;
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .overlay-gradient {
+                background: linear-gradient(180deg, rgba(7, 7, 7, 0.4) 0%, rgba(7, 7, 7, 0.9) 100%);
+            }
+            .content-container {
+                justify-content: flex-end;
+                padding-bottom: 15vh;
+            }
+            .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+            .cursor {
+                display: none; /* Hide custom cursor on mobile */
+            }
+            * {
+                cursor: auto; /* Restore normal cursor on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <main>
+        <section class="hero-track">
+            <div class="hero-sticky">
+                
+                <div class="video-container" id="video-wrapper">
+                    <!-- Substituído a tag de vídeo nativa por um container do ScrollyVideo -->
+                    <div id="scrolly-video" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
+                </div>
+
+                <div class="overlay-gradient"></div>
+                <div class="overlay-vignette"></div>
+                <div class="overlay-darken" id="overlay-darken"></div>
+
+                <div class="content-container">
+                    <div class="eyebrow font-mono">Móveis Planejados</div>
+                    
+                    <h1 class="headline font-display">
+                        <span class="line"><span class="line-inner">Elegância</span></span>
+                        <span class="line"><span class="line-inner">criada sob</span></span>
+                        <span class="line"><span class="line-inner">medida.</span></span>
+                    </h1>
+                    
+                    <p class="description">
+                        Arquitetura, precisão e materiais nobres para ambientes exclusivos.
+                    </p>
+                    
+                    <a href="#" class="btn-primary" data-hover="true">
+                        <span>Explorar Coleção</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis for Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis/bundled/lenis.min.js"></script>
+
+    <!-- ScrollyVideo (WebCodecs Frame-by-Frame Engine) -->
+    <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
+
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        const hoverables = document.querySelectorAll('[data-hover="true"]');
+
+        if (window.innerWidth > 768) {
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let cursorX = mouseX;
+            let cursorY = mouseY;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            // Smooth following cursor
+            gsap.ticker.add(() => {
+                cursorX += (mouseX - cursorX) * 0.2;
+                cursorY += (mouseY - cursorY) * 0.2;
+                gsap.set(cursor, { x: cursorX, y: cursorY });
+            });
+
+            hoverables.forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+            });
+        }
+
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        // Integrate Lenis with GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add((time)=>{
+            lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
+
+        // Entrance Animations (On Load)
+        window.addEventListener('DOMContentLoaded', () => {
+            const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.5 } });
+
+            tl.to('.eyebrow', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.2 }, 0.2)
+              .to('.line-inner', { opacity: 1, y: 0, stagger: 0.15 }, 0.4)
+              .to('.description', { opacity: 1, y: 0, filter: 'blur(0px)' }, 0.8)
+              .to('.btn-primary', { opacity: 1, y: 0 }, 1.0);
+        });
+
+        const videoWrapper = document.getElementById('video-wrapper');
+        
+        function initVideoScrub() {
+            // Inicializa a engine do ScrollyVideo
+            // Ele utiliza a API "WebCodecs" para extrair matematicamente cada frame do arquivo MP4 
+            // e pintá-lo diretamente em um Canvas. Isso burla todas as limitações da tag <video> nativa 
+            // e garante 100% de perfeição no movimento quadro-a-quadro, não importa o codec do vídeo.
+            const scrolly = new ScrollyVideo({
+                scrollyVideoContainer: "scrolly-video",
+                src: "assets/raw_files/videoHeroV2.mp4",
+                trackScroll: false, // Nós assumimos o controle via GSAP
+                transitionSpeed: 8, // Amortecimento nativo da biblioteca
+            });
+
+            // Conecta o GSAP ScrollTrigger direto na engine do ScrollyVideo
+            ScrollTrigger.create({
+                trigger: ".hero-track",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true,
+                onUpdate: (self) => {
+                    // Repassa a porcentagem do scroll (0.0 até 1.0)
+                    scrolly.setTargetTimePercent(self.progress);
+                }
+            });
+
+            // Efeitos de Parallax e Escala
+            const scrollTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".hero-track",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1, // Suavização do parallax do texto/background
+                }
+            });
+
+            scrollTl
+                .to(videoWrapper, { scale: 1.08, ease: "none" }, 0)
+                .to(".content-container", { y: -100, ease: "none" }, 0)
+                .to(".headline", { scale: 0.95, transformOrigin: "left center", opacity: 0.5, ease: "none" }, 0)
+                .to("#overlay-darken", { backgroundColor: "rgba(7, 7, 7, 0.7)", ease: "none" }, 0);
+        }
+
+        // Aguarda a janela carregar
+        window.addEventListener('load', initVideoScrub);
+
+    </script>
+</body>
+</html>

@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Elegância Criada Sob Medida | Cozinhas Planejadas</title>
+    <title>Elegância Criada Sob Medida | Cozinhas Planejadas de Alto Padrão</title>
+    <meta name="description" content="Móveis planejados de alto padrão. Arquitetura, precisão e materiais nobres para ambientes exclusivos. Transforme sua cozinha em uma obra de arte.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,17 +16,21 @@
         :root {
             --bg-main: #070707;
             --bg-surface: #111111;
+            --bg-surface-2: #0D0D0D;
             --text-gray: #A8A8A8;
+            --text-gray-light: #6B6B6B;
             --text-white: #F5F5F2;
             --border-metal: rgba(255, 255, 255, 0.08);
+            --border-metal-2: rgba(255, 255, 255, 0.04);
             --accent: #C8A97E;
+            --accent-dim: rgba(200, 169, 126, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Custom cursor */
+            cursor: none;
         }
 
         body {
@@ -36,7 +41,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, .font-display {
+        h1, h2, h3, h4, .font-display {
             font-family: 'Space Grotesk', sans-serif;
         }
         
@@ -44,13 +49,11 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Custom Cursor */
+        /* ── Custom Cursor ── */
         .cursor {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 8px;
+            top: 0; left: 0;
+            width: 8px; height: 8px;
             background-color: var(--text-white);
             border-radius: 50%;
             pointer-events: none;
@@ -59,386 +62,684 @@
             transform: translate(-50%, -50%);
             transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
         }
-
         .cursor.active {
-            width: 48px;
-            height: 48px;
+            width: 48px; height: 48px;
             background-color: rgba(200, 169, 126, 0.2);
             border: 1px solid var(--accent);
             mix-blend-mode: normal;
         }
 
-        /* Layout & Scroll Container */
-        .hero-track {
-            position: relative;
-            height: 350vh; /* Long scroll for the video to play */
-            width: 100%;
+        /* ── Noise Grain ── */
+        .noise {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9998;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
+        /* ═══ HERO ═══ */
+        .hero-track {
+            position: relative;
+            height: 350vh;
+            width: 100%;
+        }
         .hero-sticky {
             position: sticky;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             overflow: hidden;
             display: flex;
             align-items: center;
         }
-
-        /* Video Background */
         .video-container {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: 1;
             transform-origin: center center;
         }
-
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1);
-        }
-
-        /* Overlays */
         .overlay-gradient {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(7, 7, 7, 0.9) 0%, rgba(7, 7, 7, 0.4) 40%, transparent 100%);
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(7,7,7,0.92) 0%, rgba(7,7,7,0.5) 35%, transparent 100%);
             z-index: 2;
         }
-
         .overlay-vignette {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle, transparent 50%, rgba(7, 7, 7, 0.8) 150%);
+            position: absolute; inset: 0;
+            background: radial-gradient(circle, transparent 50%, rgba(7,7,7,0.8) 150%);
             z-index: 3;
             box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
         }
-
         .overlay-darken {
-            position: absolute;
-            inset: 0;
-            background: rgba(7, 7, 7, 0);
+            position: absolute; inset: 0;
+            background: rgba(7,7,7,0);
             z-index: 4;
             pointer-events: none;
         }
-
-        /* Content */
         .content-container {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 5%;
-            display: flex;
-            flex-direction: column;
+            position: relative; z-index: 10;
+            width: 100%; max-width: 1440px;
+            margin: 0 auto; padding: 0 5%;
+            display: flex; flex-direction: column;
             justify-content: center;
         }
-
         .eyebrow {
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
             color: var(--accent);
             margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            opacity: 0;
-            transform: translateY(20px);
-            filter: blur(5px);
+            display: flex; align-items: center; gap: 12px;
+            opacity: 0; transform: translateY(20px); filter: blur(5px);
         }
-
         .eyebrow::before {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 1px;
+            content: ''; display: block;
+            width: 30px; height: 1px;
             background-color: var(--accent);
         }
-
         .headline {
-            font-size: clamp(48px, 6vw, 110px);
-            line-height: 1.05;
-            font-weight: 500;
+            font-size: clamp(44px, 5.5vw, 100px);
+            line-height: 1.05; font-weight: 500;
             letter-spacing: -0.02em;
-            max-width: 800px;
-            margin-bottom: 2.5rem;
+            max-width: 800px; margin-bottom: 2.5rem;
             text-wrap: balance;
         }
-
         .headline .line {
-            display: block;
-            overflow: hidden;
-            padding-bottom: 10px; /* Prevent clipping */
+            display: block; overflow: hidden;
+            padding-bottom: 8px;
         }
-
         .headline .line-inner {
-            display: block;
-            opacity: 0;
+            display: block; opacity: 0;
             transform: translateY(100%);
         }
-
+        .headline .accent-word { color: var(--accent); }
         .description {
-            font-size: clamp(16px, 1.2vw, 22px);
-            line-height: 1.6;
-            color: var(--text-gray);
-            max-width: 500px;
-            font-weight: 300;
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(20px);
-            filter: blur(5px);
+            font-size: clamp(16px, 1.15vw, 20px);
+            line-height: 1.7; color: var(--text-gray);
+            max-width: 480px; font-weight: 300;
+            margin-bottom: 3.5rem;
+            opacity: 0; transform: translateY(20px); filter: blur(5px);
         }
 
-        /* Button */
+        /* ── Buttons ── */
         .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            background: transparent;
-            color: var(--text-white);
+            display: inline-flex; align-items: center; gap: 16px;
+            background: transparent; color: var(--text-white);
             border: 1px solid var(--border-metal);
             padding: 18px 40px;
             font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            font-weight: 400;
+            font-size: 15px; font-weight: 400;
             letter-spacing: 0.05em;
             border-radius: 100px;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            width: fit-content;
-            opacity: 0;
-            transform: translateY(20px);
+            position: relative; overflow: hidden;
+            text-decoration: none; width: fit-content;
+            opacity: 0; transform: translateY(20px);
         }
-
         .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--text-white);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: right;
+            content: ''; position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--text-white); z-index: -1;
+            transform: scaleX(0); transform-origin: right;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         .btn-primary:hover {
-            color: var(--bg-main);
-            border-color: var(--text-white);
+            color: var(--bg-main); border-color: var(--text-white);
             box-shadow: 0 0 20px rgba(255,255,255,0.05);
-            padding: 18px 48px; /* Subtle expansion */
+            padding: 18px 48px;
+        }
+        .btn-primary:hover::before { transform: scaleX(1); transform-origin: left; }
+        .btn-primary svg { width: 16px; height: 16px; transition: transform 0.5s ease; }
+        .btn-primary:hover svg { transform: translateX(4px); }
+
+        /* ═══ SECTION 2 — AUTHORITY ═══ */
+        .section-wrapper {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 5%;
         }
 
-        .btn-primary:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
+        /* ── Pillars Bar ── */
+        .pillars-section {
+            position: relative;
+            border-top: 1px solid var(--border-metal);
+            border-bottom: 1px solid var(--border-metal);
+            background: var(--bg-surface-2);
+            padding: 20px 0;
+            overflow: hidden;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .pillar-item {
+            padding: 40px 32px;
+            border-right: 1px solid var(--border-metal);
+            position: relative;
+            opacity: 0; transform: translateY(30px);
+        }
+        .pillar-item:last-child { border-right: none; }
+        .pillar-icon {
+            width: 48px; height: 48px;
+            border: 1px solid var(--border-metal);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+            color: var(--accent); font-size: 22px;
+            background: var(--accent-dim);
+            transition: all 0.4s ease;
+        }
+        .pillar-item:hover .pillar-icon {
+            background: var(--accent); color: var(--bg-main);
+            transform: scale(1.05);
+        }
+        .pillar-title {
+            font-size: 15px; font-weight: 500;
+            letter-spacing: -0.01em; margin-bottom: 10px;
+        }
+        .pillar-desc {
+            font-size: 13px; line-height: 1.6;
+            color: var(--text-gray-light); font-weight: 300;
         }
 
-        .btn-primary svg {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.5s ease;
+        /* ── About Section ── */
+        .about-section { padding: 140px 0; position: relative; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: center;
+        }
+        .about-left { opacity: 0; transform: translateX(-40px); }
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; text-transform: uppercase;
+            letter-spacing: 0.25em; color: var(--accent);
+            margin-bottom: 24px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .section-label::before {
+            content: ''; width: 24px; height: 1px;
+            background: var(--accent);
+        }
+        .section-title {
+            font-size: clamp(32px, 3.2vw, 56px);
+            line-height: 1.1; font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 28px; text-wrap: balance;
+        }
+        .section-text {
+            font-size: 16px; line-height: 1.8;
+            color: var(--text-gray); font-weight: 300;
+            max-width: 520px; margin-bottom: 32px;
+        }
+        .stats-row {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 32px; padding-top: 48px;
+            border-top: 1px solid var(--border-metal);
+        }
+        .stat-item { opacity: 0; transform: translateY(20px); }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(36px, 3vw, 52px);
+            font-weight: 600; letter-spacing: -0.03em;
+            line-height: 1; margin-bottom: 6px;
+        }
+        .stat-number .accent { color: var(--accent); }
+        .stat-label {
+            font-size: 12px; text-transform: uppercase;
+            letter-spacing: 0.15em; color: var(--text-gray-light);
         }
 
-        .btn-primary:hover svg {
-            transform: translateX(4px);
+        /* About Right */
+        .about-right { position: relative; opacity: 0; transform: translateX(40px); }
+        .about-image-main {
+            width: 100%; aspect-ratio: 4/3;
+            object-fit: cover; border-radius: 4px;
+            filter: brightness(0.9) contrast(1.05);
+        }
+        .about-image-overlay {
+            position: absolute; bottom: -40px; left: -40px;
+            width: 55%; background: var(--bg-surface);
+            border: 1px solid var(--border-metal);
+            padding: 32px; border-radius: 4px;
+        }
+        .about-image-overlay h4 {
+            font-size: 18px; font-weight: 500;
+            letter-spacing: -0.01em; margin-bottom: 10px;
+        }
+        .about-image-overlay p {
+            font-size: 13px; color: var(--text-gray-light);
+            line-height: 1.6; font-weight: 300;
+        }
+        .accent-line {
+            width: 32px; height: 2px;
+            background: var(--accent); margin-bottom: 16px;
         }
 
-        /* Responsive adjustments */
+        /* ── Process Section ── */
+        .process-section {
+            padding: 120px 0;
+            border-top: 1px solid var(--border-metal);
+            position: relative; overflow: hidden;
+        }
+        .process-header {
+            text-align: center; margin-bottom: 80px;
+            opacity: 0; transform: translateY(30px);
+        }
+        .process-header .section-label { justify-content: center; }
+        .process-header .section-title { max-width: 600px; margin: 0 auto 16px; }
+        .process-header .section-text { max-width: 500px; margin: 0 auto; text-align: center; }
+        .process-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            position: relative;
+        }
+        .process-grid::before {
+            content: ''; position: absolute;
+            top: 40px; left: 10%; right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-metal) 15%, var(--accent) 50%, var(--border-metal) 85%, transparent);
+        }
+        .process-step {
+            padding: 0 24px; text-align: center;
+            position: relative;
+            opacity: 0; transform: translateY(30px);
+        }
+        .process-step-number {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            border: 1px solid var(--border-metal);
+            background: var(--bg-surface);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 28px;
+            font-size: 24px; font-weight: 500;
+            color: var(--accent); position: relative; z-index: 2;
+            transition: all 0.4s ease;
+        }
+        .process-step:hover .process-step-number {
+            background: var(--accent); color: var(--bg-main);
+            border-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 40px var(--accent-dim);
+        }
+        .process-step-title {
+            font-size: 15px; font-weight: 500;
+            margin-bottom: 10px; letter-spacing: -0.01em;
+        }
+        .process-step-desc {
+            font-size: 13px; color: var(--text-gray-light);
+            line-height: 1.5; font-weight: 300;
+        }
+
+        /* ── CTA Section ── */
+        .cta-section {
+            padding: 120px 0; position: relative;
+            border-top: 1px solid var(--border-metal);
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: ''; position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-content {
+            text-align: center; position: relative; z-index: 2;
+            opacity: 0; transform: translateY(30px);
+        }
+        .cta-content .section-label { justify-content: center; }
+        .cta-content .section-title { max-width: 700px; margin: 0 auto 20px; }
+        .cta-content .section-text { max-width: 500px; margin: 0 auto 48px; text-align: center; }
+
+        .btn-whatsapp {
+            display: inline-flex; align-items: center; gap: 14px;
+            background: var(--accent); color: var(--bg-main);
+            padding: 20px 48px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px; font-weight: 500;
+            letter-spacing: 0.03em;
+            border-radius: 100px;
+            text-decoration: none; border: none;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
+        }
+        .btn-whatsapp::before {
+            content: ''; position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #D4B896, var(--accent));
+            z-index: 0; opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 48px rgba(200, 169, 126, 0.25);
+            padding: 20px 56px;
+        }
+        .btn-whatsapp:hover::before { opacity: 1; }
+        .btn-whatsapp span,
+        .btn-whatsapp svg { position: relative; z-index: 1; }
+        .btn-whatsapp svg {
+            width: 20px; height: 20px;
+            transition: transform 0.4s ease;
+        }
+        .btn-whatsapp:hover svg { transform: scale(1.15); }
+        .cta-trust {
+            margin-top: 24px; font-size: 12px;
+            color: var(--text-gray-light); letter-spacing: 0.05em;
+        }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 1024px) {
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+            .pillar-item:nth-child(2) { border-right: none; }
+            .pillar-item:nth-child(1),
+            .pillar-item:nth-child(2) { border-bottom: 1px solid var(--border-metal); }
+            .about-grid { grid-template-columns: 1fr; gap: 60px; }
+            .about-image-overlay {
+                position: relative; bottom: auto; left: auto;
+                width: 100%; margin-top: -40px;
+            }
+            .process-grid { grid-template-columns: repeat(3, 1fr); row-gap: 48px; }
+            .process-grid::before { display: none; }
+        }
         @media (max-width: 768px) {
-            .overlay-gradient {
-                background: linear-gradient(180deg, rgba(7, 7, 7, 0.4) 0%, rgba(7, 7, 7, 0.9) 100%);
-            }
-            .content-container {
-                justify-content: flex-end;
-                padding-bottom: 15vh;
-            }
-            .btn-primary {
-                width: 100%;
-                justify-content: center;
-            }
-            .cursor {
-                display: none; /* Hide custom cursor on mobile */
-            }
-            * {
-                cursor: auto; /* Restore normal cursor on mobile */
-            }
+            .overlay-gradient { background: linear-gradient(180deg, rgba(7,7,7,0.4) 0%, rgba(7,7,7,0.92) 100%); }
+            .content-container { justify-content: flex-end; padding-bottom: 12vh; }
+            .btn-primary { width: 100%; justify-content: center; }
+            .cursor { display: none; }
+            * { cursor: auto; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .pillar-item { border-right: none; border-bottom: 1px solid var(--border-metal); padding: 28px 24px; }
+            .pillar-item:last-child { border-bottom: none; }
+            .about-section { padding: 80px 0; }
+            .stats-row { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+            .process-section { padding: 80px 0; }
+            .process-grid { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+            .process-header { margin-bottom: 48px; }
+            .cta-section { padding: 80px 0; }
+            .btn-whatsapp { width: 100%; justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            .process-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Custom Cursor -->
+    <div class="noise"></div>
     <div class="cursor" id="cursor"></div>
 
     <main>
+
+        <!-- ═══ HERO ═══ -->
         <section class="hero-track">
             <div class="hero-sticky">
-                
                 <div class="video-container" id="video-wrapper">
-                    <!-- Substituído a tag de vídeo nativa por um container do ScrollyVideo -->
-                    <div id="scrolly-video" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
+                    <div id="scrolly-video" style="width:100%;height:100%;position:absolute;top:0;left:0;"></div>
                 </div>
-
                 <div class="overlay-gradient"></div>
                 <div class="overlay-vignette"></div>
                 <div class="overlay-darken" id="overlay-darken"></div>
-
                 <div class="content-container">
-                    <div class="eyebrow font-mono">Móveis Planejados</div>
-                    
+                    <div class="eyebrow font-mono">Ateliê de Móveis Planejados</div>
                     <h1 class="headline font-display">
-                        <span class="line"><span class="line-inner">Elegância</span></span>
-                        <span class="line"><span class="line-inner">criada sob</span></span>
-                        <span class="line"><span class="line-inner">medida.</span></span>
+                        <span class="line"><span class="line-inner">Onde cada</span></span>
+                        <span class="line"><span class="line-inner">detalhe é uma</span></span>
+                        <span class="line"><span class="line-inner"><span class="accent-word">obra-prima.</span></span></span>
                     </h1>
-                    
-                    <p class="description">
-                        Arquitetura, precisão e materiais nobres para ambientes exclusivos.
-                    </p>
-                    
-                    <a href="#" class="btn-primary" data-hover="true">
-                        <span>Explorar Coleção</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
+                    <p class="description">Projetos exclusivos que unem arquitetura de interiores, marcenaria de precisão e acabamentos nobres — para quem não aceita o comum.</p>
+                    <a href="#contato" class="btn-primary" data-hover="true">
+                        <span>Solicitar Projeto Exclusivo</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
                 </div>
-
             </div>
         </section>
+
+        <!-- ═══ PILLARS ═══ -->
+        <section class="pillars-section">
+            <div class="section-wrapper">
+                <div class="pillars-grid">
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"/></svg>
+                        </div>
+                        <h3 class="pillar-title font-display">Materiais Premium</h3>
+                        <p class="pillar-desc">MDF de alta densidade, acabamentos lacados, pedras naturais e ferragens importadas de primeira linha.</p>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-1.6 1.6a2.4 2.4 0 0 1-3.4 0L2.7 6.7a2.4 2.4 0 0 1 0-3.4l1.6-1.6a2.4 2.4 0 0 1 3.4 0Z"/><path d="m14.5 12.8 2 2"/><path d="m11.8 10 2 2"/><path d="m9 7.3 2 2"/><path d="m6.3 4.5 2 2"/></svg>
+                        </div>
+                        <h3 class="pillar-title font-display">Projeto Sob Medida</h3>
+                        <p class="pillar-desc">Cada milímetro é pensado para o seu espaço. Nada genérico, tudo exclusivo e personalizado.</p>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="pillar-title font-display">Garantia Estendida</h3>
+                        <p class="pillar-desc">Qualidade que se prova no tempo. Garantia sólida e acompanhamento pós-entrega em cada projeto.</p>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                        </div>
+                        <h3 class="pillar-title font-display">Design Autoral</h3>
+                        <p class="pillar-desc">Projetos concebidos por designers especializados em ambientes de alto padrão e arquitetura contemporânea.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ ABOUT ═══ -->
+        <section class="about-section" id="sobre">
+            <div class="section-wrapper">
+                <div class="about-grid">
+                    <div class="about-left">
+                        <div class="section-label">Sobre Nós</div>
+                        <h2 class="section-title font-display">Não fabricamos móveis.<br>Construímos <span style="color:var(--accent)">legados.</span></h2>
+                        <p class="section-text">Somos uma marcenaria de alto padrão que nasceu da obsessão por perfeição. Cada projeto carrega anos de experiência em design de interiores, engenharia de precisão e a curadoria mais exigente de materiais do mercado.</p>
+                        <p class="section-text" style="margin-bottom:0">Nossos clientes não compram móveis — eles investem em ambientes que valorizam seu patrimônio e elevam sua qualidade de vida.</p>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-number font-display" data-target="15">0<span class="accent">+</span></div>
+                                <div class="stat-label">Anos de mercado</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number font-display" data-target="500">0<span class="accent">+</span></div>
+                                <div class="stat-label">Projetos entregues</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number font-display" data-target="98">0<span class="accent">%</span></div>
+                                <div class="stat-label">Clientes satisfeitos</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-right">
+                        <img src="assets/raw_files/frameFinal.jpeg" alt="Cozinha planejada de alto padrão com acabamentos em madeira nobre e bancada em pedra natural" class="about-image-main" loading="lazy">
+                        <div class="about-image-overlay">
+                            <div class="accent-line"></div>
+                            <h4 class="font-display">Qualidade em cada detalhe</h4>
+                            <p>Cada elemento dos nossos móveis passa por rigoroso controle de qualidade — do corte à montagem final no seu ambiente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PROCESS ═══ -->
+        <section class="process-section">
+            <div class="section-wrapper">
+                <div class="process-header">
+                    <div class="section-label">Nosso Processo</div>
+                    <h2 class="section-title font-display">Do sonho à realidade<br>em <span style="color:var(--accent)">5 etapas.</span></h2>
+                    <p class="section-text">Um método refinado para garantir que cada centímetro do seu projeto seja impecável.</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="process-step-number font-display">01</div>
+                        <h3 class="process-step-title font-display">Briefing</h3>
+                        <p class="process-step-desc">Entendemos o seu estilo de vida, necessidades e sonhos para o ambiente.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number font-display">02</div>
+                        <h3 class="process-step-title font-display">Projeto 3D</h3>
+                        <p class="process-step-desc">Criamos visualizações fotorrealistas para você aprovar cada detalhe antes da produção.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number font-display">03</div>
+                        <h3 class="process-step-title font-display">Produção</h3>
+                        <p class="process-step-desc">Fabricação em maquinário de última geração com controle de qualidade em cada etapa.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number font-display">04</div>
+                        <h3 class="process-step-title font-display">Montagem</h3>
+                        <p class="process-step-desc">Equipe especializada instala seu projeto com precisão milimétrica no local.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number font-display">05</div>
+                        <h3 class="process-step-title font-display">Entrega</h3>
+                        <p class="process-step-desc">Revisão final completa e acompanhamento pós-entrega para sua total satisfação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ CTA ═══ -->
+        <section class="cta-section" id="contato">
+            <div class="section-wrapper">
+                <div class="cta-content">
+                    <div class="section-label">Vamos Conversar</div>
+                    <h2 class="section-title font-display">Seu ambiente merece<br>o <span style="color:var(--accent)">extraordinário.</span></h2>
+                    <p class="section-text">Fale diretamente com nosso time de especialistas. Receba uma consultoria exclusiva e sem compromisso para o seu projeto.</p>
+                    <a href="https://wa.me/5574991187363?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20m%C3%B3veis%20planejados." class="btn-whatsapp" target="_blank" rel="noopener" data-hover="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        <span>Falar com Especialista</span>
+                    </a>
+                    <p class="cta-trust">Atendimento humanizado · Resposta em até 2 horas</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- GSAP & ScrollTrigger -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    
-    <!-- Lenis for Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis/bundled/lenis.min.js"></script>
-
-    <!-- ScrollyVideo (WebCodecs Frame-by-Frame Engine) -->
     <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
 
     <script>
-        // Custom Cursor Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ── Custom Cursor ──
         const cursor = document.getElementById('cursor');
-        const hoverables = document.querySelectorAll('[data-hover="true"]');
-
         if (window.innerWidth > 768) {
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-            let cursorX = mouseX;
-            let cursorY = mouseY;
-
-            window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            // Smooth following cursor
+            let mX = innerWidth / 2, mY = innerHeight / 2, cX = mX, cY = mY;
+            addEventListener('mousemove', e => { mX = e.clientX; mY = e.clientY; });
             gsap.ticker.add(() => {
-                cursorX += (mouseX - cursorX) * 0.2;
-                cursorY += (mouseY - cursorY) * 0.2;
-                gsap.set(cursor, { x: cursorX, y: cursorY });
+                cX += (mX - cX) * 0.2; cY += (mY - cY) * 0.2;
+                gsap.set(cursor, { x: cX, y: cY });
             });
-
-            hoverables.forEach(el => {
+            document.querySelectorAll('[data-hover="true"]').forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('active'));
                 el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
             });
         }
 
-        // Initialize Lenis Smooth Scroll
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-        });
-
-        // Integrate Lenis with GSAP ScrollTrigger
-        lenis.on('scroll', ScrollTrigger.update);
-
-        gsap.ticker.add((time)=>{
-            lenis.raf(time * 1000);
-        });
-
-        gsap.ticker.lagSmoothing(0);
-
-        // Entrance Animations (On Load)
-        window.addEventListener('DOMContentLoaded', () => {
+        // ── Hero Entrance ──
+        addEventListener('DOMContentLoaded', () => {
             const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.5 } });
-
             tl.to('.eyebrow', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.2 }, 0.2)
               .to('.line-inner', { opacity: 1, y: 0, stagger: 0.15 }, 0.4)
               .to('.description', { opacity: 1, y: 0, filter: 'blur(0px)' }, 0.8)
               .to('.btn-primary', { opacity: 1, y: 0 }, 1.0);
         });
 
+        // ── ScrollyVideo ──
+        new ScrollyVideo({
+            scrollyVideoContainer: "scrolly-video",
+            src: "assets/raw_files/videoHeroV2.mp4",
+            trackScroll: true,
+            transitionSpeed: 8,
+            cover: true, sticky: false, full: false,
+            useWebCodecs: true,
+        });
+
+        // ── Hero Parallax ──
         const videoWrapper = document.getElementById('video-wrapper');
-        
-        function initVideoScrub() {
-            // Inicializa a engine do ScrollyVideo
-            // Ele utiliza a API "WebCodecs" para extrair matematicamente cada frame do arquivo MP4 
-            // e pintá-lo diretamente em um Canvas. Isso burla todas as limitações da tag <video> nativa 
-            // e garante 100% de perfeição no movimento quadro-a-quadro, não importa o codec do vídeo.
-            const scrolly = new ScrollyVideo({
-                scrollyVideoContainer: "scrolly-video",
-                src: "assets/raw_files/videoHeroV2.mp4",
-                trackScroll: false, // Nós assumimos o controle via GSAP
-                transitionSpeed: 8, // Amortecimento nativo da biblioteca
-            });
+        gsap.timeline({
+            scrollTrigger: { trigger: ".hero-track", start: "top top", end: "bottom bottom", scrub: 1 }
+        })
+        .to(videoWrapper, { scale: 1.08, ease: "none" }, 0)
+        .to(".content-container", { y: -100, ease: "none" }, 0)
+        .to(".headline", { scale: 0.95, transformOrigin: "left center", opacity: 0.5, ease: "none" }, 0)
+        .to("#overlay-darken", { backgroundColor: "rgba(7, 7, 7, 0.7)", ease: "none" }, 0);
 
-            // Conecta o GSAP ScrollTrigger direto na engine do ScrollyVideo
+        // ═══ SECTION 2 ANIMATIONS ═══
+
+        // Pillars
+        gsap.to('.pillar-item', {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+            scrollTrigger: { trigger: '.pillars-section', start: 'top 85%', toggleActions: 'play none none reverse' }
+        });
+
+        // About Left
+        gsap.to('.about-left', {
+            opacity: 1, x: 0, duration: 1.2, ease: 'power3.out',
+            scrollTrigger: { trigger: '.about-section', start: 'top 75%', toggleActions: 'play none none reverse' }
+        });
+
+        // About Right
+        gsap.to('.about-right', {
+            opacity: 1, x: 0, duration: 1.2, ease: 'power3.out', delay: 0.2,
+            scrollTrigger: { trigger: '.about-section', start: 'top 75%', toggleActions: 'play none none reverse' }
+        });
+
+        // Stats
+        gsap.to('.stat-item', {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+            scrollTrigger: { trigger: '.stats-row', start: 'top 90%', toggleActions: 'play none none reverse' }
+        });
+
+        // Animated Counters
+        document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+            const target = parseInt(el.dataset.target);
+            const suffix = el.innerHTML.match(/<span class="accent">(.*?)<\/span>/)?.[1] || '';
             ScrollTrigger.create({
-                trigger: ".hero-track",
-                start: "top top",
-                end: "bottom bottom",
-                scrub: true,
-                onUpdate: (self) => {
-                    // Repassa a porcentagem do scroll (0.0 até 1.0)
-                    scrolly.setTargetTimePercent(self.progress);
+                trigger: el, start: 'top 90%', once: true,
+                onEnter: () => {
+                    let obj = { val: 0 };
+                    gsap.to(obj, {
+                        val: target, duration: 2, ease: 'power2.out',
+                        onUpdate: () => {
+                            el.innerHTML = Math.round(obj.val) + '<span class="accent">' + suffix + '</span>';
+                        }
+                    });
                 }
             });
+        });
 
-            // Efeitos de Parallax e Escala
-            const scrollTl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".hero-track",
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: 1, // Suavização do parallax do texto/background
-                }
-            });
+        // Process Header
+        gsap.to('.process-header', {
+            opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: '.process-section', start: 'top 80%', toggleActions: 'play none none reverse' }
+        });
 
-            scrollTl
-                .to(videoWrapper, { scale: 1.08, ease: "none" }, 0)
-                .to(".content-container", { y: -100, ease: "none" }, 0)
-                .to(".headline", { scale: 0.95, transformOrigin: "left center", opacity: 0.5, ease: "none" }, 0)
-                .to("#overlay-darken", { backgroundColor: "rgba(7, 7, 7, 0.7)", ease: "none" }, 0);
-        }
+        // Process Steps
+        gsap.to('.process-step', {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+            scrollTrigger: { trigger: '.process-grid', start: 'top 85%', toggleActions: 'play none none reverse' }
+        });
 
-        // Aguarda a janela carregar
-        window.addEventListener('load', initVideoScrub);
-
+        // CTA
+        gsap.to('.cta-content', {
+            opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
+            scrollTrigger: { trigger: '.cta-section', start: 'top 80%', toggleActions: 'play none none reverse' }
+        });
     </script>
 </body>
 </html>

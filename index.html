@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="pt-BR">
+
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Elegância Criada Sob Medida | Cozinhas Planejadas de Alto Padrão</title>
-    <meta name="description" content="Móveis planejados de alto padrão. Arquitetura, precisão e materiais nobres para ambientes exclusivos. Transforme sua cozinha em uma obra de arte.">
+    <meta name="description"
+        content="Móveis planejados de alto padrão. Arquitetura, precisão e materiais nobres para ambientes exclusivos. Transforme sua cozinha em uma obra de arte.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
     <!-- CSS -->
     <style>
         :root {
@@ -41,10 +45,14 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, .font-display {
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-display {
             font-family: 'Space Grotesk', sans-serif;
         }
-        
+
         .font-mono {
             font-family: 'JetBrains Mono', monospace;
         }
@@ -52,8 +60,10 @@
         /* ── Custom Cursor ── */
         .cursor {
             position: fixed;
-            top: 0; left: 0;
-            width: 8px; height: 8px;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
             background-color: var(--text-white);
             border-radius: 50%;
             pointer-events: none;
@@ -62,8 +72,10 @@
             transform: translate(-50%, -50%);
             transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
         }
+
         .cursor.active {
-            width: 48px; height: 48px;
+            width: 48px;
+            height: 48px;
             background-color: rgba(200, 169, 126, 0.2);
             border: 1px solid var(--accent);
             mix-blend-mode: normal;
@@ -72,8 +84,10 @@
         /* ── Noise Grain ── */
         .noise {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             opacity: 0.03;
             pointer-events: none;
             z-index: 9998;
@@ -86,113 +100,181 @@
             height: 350vh;
             width: 100%;
         }
+
         .hero-sticky {
             position: sticky;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
             display: flex;
             align-items: center;
         }
+
         .video-container {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
             transform-origin: center center;
         }
+
         .overlay-gradient {
-            position: absolute; inset: 0;
-            background: linear-gradient(90deg, rgba(7,7,7,0.92) 0%, rgba(7,7,7,0.5) 35%, transparent 100%);
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(7, 7, 7, 0.92) 0%, rgba(7, 7, 7, 0.5) 35%, transparent 100%);
             z-index: 2;
         }
+
         .overlay-vignette {
-            position: absolute; inset: 0;
-            background: radial-gradient(circle, transparent 50%, rgba(7,7,7,0.8) 150%);
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, transparent 50%, rgba(7, 7, 7, 0.8) 150%);
             z-index: 3;
-            box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
+            box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.9);
         }
+
         .overlay-darken {
-            position: absolute; inset: 0;
-            background: rgba(7,7,7,0);
+            position: absolute;
+            inset: 0;
+            background: rgba(7, 7, 7, 0);
             z-index: 4;
             pointer-events: none;
         }
+
         .content-container {
-            position: relative; z-index: 10;
-            width: 100%; max-width: 1440px;
-            margin: 0 auto; padding: 0 5%;
-            display: flex; flex-direction: column;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
         }
+
         .eyebrow {
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.25em;
             color: var(--accent);
             margin-bottom: 2rem;
-            display: flex; align-items: center; gap: 12px;
-            opacity: 0; transform: translateY(20px); filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(5px);
         }
+
         .eyebrow::before {
-            content: ''; display: block;
-            width: 30px; height: 1px;
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
             background-color: var(--accent);
         }
+
         .headline {
             font-size: clamp(44px, 5.5vw, 100px);
-            line-height: 1.05; font-weight: 500;
+            line-height: 1.05;
+            font-weight: 500;
             letter-spacing: -0.02em;
-            max-width: 800px; margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
             text-wrap: balance;
         }
+
         .headline .line {
-            display: block; overflow: hidden;
+            display: block;
+            overflow: hidden;
             padding-bottom: 8px;
         }
+
         .headline .line-inner {
-            display: block; opacity: 0;
+            display: block;
+            opacity: 0;
             transform: translateY(100%);
         }
-        .headline .accent-word { color: var(--accent); }
+
+        .headline .accent-word {
+            color: var(--accent);
+        }
+
         .description {
             font-size: clamp(16px, 1.15vw, 20px);
-            line-height: 1.7; color: var(--text-gray);
-            max-width: 480px; font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-gray);
+            max-width: 480px;
+            font-weight: 300;
             margin-bottom: 3.5rem;
-            opacity: 0; transform: translateY(20px); filter: blur(5px);
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(5px);
         }
 
         /* ── Buttons ── */
         .btn-primary {
-            display: inline-flex; align-items: center; gap: 16px;
-            background: transparent; color: var(--text-white);
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: transparent;
+            color: var(--text-white);
             border: 1px solid var(--border-metal);
             padding: 18px 40px;
             font-family: 'Inter', sans-serif;
-            font-size: 15px; font-weight: 400;
+            font-size: 15px;
+            font-weight: 400;
             letter-spacing: 0.05em;
             border-radius: 100px;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative; overflow: hidden;
-            text-decoration: none; width: fit-content;
-            opacity: 0; transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            width: fit-content;
+            opacity: 0;
+            transform: translateY(20px);
         }
+
         .btn-primary::before {
-            content: ''; position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--text-white); z-index: -1;
-            transform: scaleX(0); transform-origin: right;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--text-white);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .btn-primary:hover {
-            color: var(--bg-main); border-color: var(--text-white);
-            box-shadow: 0 0 20px rgba(255,255,255,0.05);
+            color: var(--bg-main);
+            border-color: var(--text-white);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
             padding: 18px 48px;
         }
-        .btn-primary:hover::before { transform: scaleX(1); transform-origin: left; }
-        .btn-primary svg { width: 16px; height: 16px; transition: transform 0.5s ease; }
-        .btn-primary:hover svg { transform: translateX(4px); }
+
+        .btn-primary:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-primary svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.5s ease;
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px);
+        }
 
         /* ═══ SECTION 2 — AUTHORITY ═══ */
         .section-wrapper {
@@ -210,267 +292,1446 @@
             padding: 20px 0;
             overflow: hidden;
         }
+
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
         }
+
         .pillar-item {
             padding: 40px 32px;
             border-right: 1px solid var(--border-metal);
             position: relative;
-            opacity: 0; transform: translateY(30px);
+            opacity: 0;
+            transform: translateY(30px);
         }
-        .pillar-item:last-child { border-right: none; }
+
+        .pillar-item:last-child {
+            border-right: none;
+        }
+
         .pillar-icon {
-            width: 48px; height: 48px;
+            width: 48px;
+            height: 48px;
             border: 1px solid var(--border-metal);
             border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 24px;
-            color: var(--accent); font-size: 22px;
+            color: var(--accent);
+            font-size: 22px;
             background: var(--accent-dim);
             transition: all 0.4s ease;
         }
+
         .pillar-item:hover .pillar-icon {
-            background: var(--accent); color: var(--bg-main);
+            background: var(--accent);
+            color: var(--bg-main);
             transform: scale(1.05);
         }
+
         .pillar-title {
-            font-size: 15px; font-weight: 500;
-            letter-spacing: -0.01em; margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 10px;
         }
+
         .pillar-desc {
-            font-size: 13px; line-height: 1.6;
-            color: var(--text-gray-light); font-weight: 300;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-gray-light);
+            font-weight: 300;
         }
 
         /* ── About Section ── */
-        .about-section { padding: 140px 0; position: relative; }
+        .about-section {
+            padding: 140px 0;
+            position: relative;
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px; align-items: center;
+            gap: 80px;
+            align-items: center;
         }
-        .about-left { opacity: 0; transform: translateX(-40px); }
+
+        .about-left {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+
         .section-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11px; text-transform: uppercase;
-            letter-spacing: 0.25em; color: var(--accent);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent);
             margin-bottom: 24px;
-            display: flex; align-items: center; gap: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
+
         .section-label::before {
-            content: ''; width: 24px; height: 1px;
+            content: '';
+            width: 24px;
+            height: 1px;
             background: var(--accent);
         }
+
         .section-title {
             font-size: clamp(32px, 3.2vw, 56px);
-            line-height: 1.1; font-weight: 500;
+            line-height: 1.1;
+            font-weight: 500;
             letter-spacing: -0.02em;
-            margin-bottom: 28px; text-wrap: balance;
+            margin-bottom: 28px;
+            text-wrap: balance;
         }
+
         .section-text {
-            font-size: 16px; line-height: 1.8;
-            color: var(--text-gray); font-weight: 300;
-            max-width: 520px; margin-bottom: 32px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            font-weight: 300;
+            max-width: 520px;
+            margin-bottom: 32px;
         }
+
         .stats-row {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 32px; padding-top: 48px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            padding-top: 48px;
             border-top: 1px solid var(--border-metal);
         }
-        .stat-item { opacity: 0; transform: translateY(20px); }
+
+        .stat-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
         .stat-number {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(36px, 3vw, 52px);
-            font-weight: 600; letter-spacing: -0.03em;
-            line-height: 1; margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 6px;
         }
-        .stat-number .accent { color: var(--accent); }
+
+        .stat-number .accent {
+            color: var(--accent);
+        }
+
         .stat-label {
-            font-size: 12px; text-transform: uppercase;
-            letter-spacing: 0.15em; color: var(--text-gray-light);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-gray-light);
         }
 
         /* About Right */
-        .about-right { position: relative; opacity: 0; transform: translateX(40px); }
+        .about-right {
+            position: relative;
+            opacity: 0;
+            transform: translateX(40px);
+        }
+
         .about-image-main {
-            width: 100%; aspect-ratio: 4/3;
-            object-fit: cover; border-radius: 4px;
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 4px;
             filter: brightness(0.9) contrast(1.05);
         }
+
         .about-image-overlay {
-            position: absolute; bottom: -40px; left: -40px;
-            width: 55%; background: var(--bg-surface);
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 55%;
+            background: var(--bg-surface);
             border: 1px solid var(--border-metal);
-            padding: 32px; border-radius: 4px;
+            padding: 32px;
+            border-radius: 4px;
         }
+
         .about-image-overlay h4 {
-            font-size: 18px; font-weight: 500;
-            letter-spacing: -0.01em; margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 10px;
         }
+
         .about-image-overlay p {
-            font-size: 13px; color: var(--text-gray-light);
-            line-height: 1.6; font-weight: 300;
+            font-size: 13px;
+            color: var(--text-gray-light);
+            line-height: 1.6;
+            font-weight: 300;
         }
+
         .accent-line {
-            width: 32px; height: 2px;
-            background: var(--accent); margin-bottom: 16px;
+            width: 32px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 16px;
         }
 
         /* ── Process Section ── */
         .process-section {
             padding: 120px 0;
             border-top: 1px solid var(--border-metal);
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
+
         .process-header {
-            text-align: center; margin-bottom: 80px;
-            opacity: 0; transform: translateY(30px);
+            text-align: center;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
         }
-        .process-header .section-label { justify-content: center; }
-        .process-header .section-title { max-width: 600px; margin: 0 auto 16px; }
-        .process-header .section-text { max-width: 500px; margin: 0 auto; text-align: center; }
+
+        .process-header .section-label {
+            justify-content: center;
+        }
+
+        .process-header .section-title {
+            max-width: 600px;
+            margin: 0 auto 16px;
+        }
+
+        .process-header .section-text {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         .process-grid {
-            display: grid; grid-template-columns: repeat(5, 1fr);
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             position: relative;
         }
+
         .process-grid::before {
-            content: ''; position: absolute;
-            top: 40px; left: 10%; right: 10%;
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--border-metal) 15%, var(--accent) 50%, var(--border-metal) 85%, transparent);
         }
+
         .process-step {
-            padding: 0 24px; text-align: center;
+            padding: 0 24px;
+            text-align: center;
             position: relative;
-            opacity: 0; transform: translateY(30px);
+            opacity: 0;
+            transform: translateY(30px);
         }
+
         .process-step-number {
-            width: 80px; height: 80px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             border: 1px solid var(--border-metal);
             background: var(--bg-surface);
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 0 auto 28px;
-            font-size: 24px; font-weight: 500;
-            color: var(--accent); position: relative; z-index: 2;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--accent);
+            position: relative;
+            z-index: 2;
             transition: all 0.4s ease;
         }
+
         .process-step:hover .process-step-number {
-            background: var(--accent); color: var(--bg-main);
+            background: var(--accent);
+            color: var(--bg-main);
             border-color: var(--accent);
             transform: scale(1.1);
             box-shadow: 0 0 40px var(--accent-dim);
         }
+
         .process-step-title {
-            font-size: 15px; font-weight: 500;
-            margin-bottom: 10px; letter-spacing: -0.01em;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
         }
+
         .process-step-desc {
-            font-size: 13px; color: var(--text-gray-light);
-            line-height: 1.5; font-weight: 300;
+            font-size: 13px;
+            color: var(--text-gray-light);
+            line-height: 1.5;
+            font-weight: 300;
         }
 
         /* ── CTA Section ── */
         .cta-section {
-            padding: 120px 0; position: relative;
+            padding: 120px 0;
+            position: relative;
             border-top: 1px solid var(--border-metal);
             overflow: hidden;
         }
+
         .cta-section::before {
-            content: ''; position: absolute;
-            top: 50%; left: 50%;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px; height: 600px;
+            width: 600px;
+            height: 600px;
             background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .cta-content {
-            text-align: center; position: relative; z-index: 2;
-            opacity: 0; transform: translateY(30px);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
         }
-        .cta-content .section-label { justify-content: center; }
-        .cta-content .section-title { max-width: 700px; margin: 0 auto 20px; }
-        .cta-content .section-text { max-width: 500px; margin: 0 auto 48px; text-align: center; }
+
+        .cta-content .section-label {
+            justify-content: center;
+        }
+
+        .cta-content .section-title {
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .cta-content .section-text {
+            max-width: 500px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
 
         .btn-whatsapp {
-            display: inline-flex; align-items: center; gap: 14px;
-            background: var(--accent); color: var(--bg-main);
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--accent);
+            color: var(--bg-main);
             padding: 20px 48px;
             font-family: 'Inter', sans-serif;
-            font-size: 15px; font-weight: 500;
+            font-size: 15px;
+            font-weight: 500;
             letter-spacing: 0.03em;
             border-radius: 100px;
-            text-decoration: none; border: none;
+            text-decoration: none;
+            border: none;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
+
         .btn-whatsapp::before {
-            content: ''; position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, #D4B896, var(--accent));
-            z-index: 0; opacity: 0;
+            z-index: 0;
+            opacity: 0;
             transition: opacity 0.5s ease;
         }
+
         .btn-whatsapp:hover {
             transform: translateY(-2px);
             box-shadow: 0 16px 48px rgba(200, 169, 126, 0.25);
             padding: 20px 56px;
         }
-        .btn-whatsapp:hover::before { opacity: 1; }
+
+        .btn-whatsapp:hover::before {
+            opacity: 1;
+        }
+
         .btn-whatsapp span,
-        .btn-whatsapp svg { position: relative; z-index: 1; }
         .btn-whatsapp svg {
-            width: 20px; height: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-whatsapp svg {
+            width: 20px;
+            height: 20px;
             transition: transform 0.4s ease;
         }
-        .btn-whatsapp:hover svg { transform: scale(1.15); }
+
+        .btn-whatsapp:hover svg {
+            transform: scale(1.15);
+        }
+
         .cta-trust {
-            margin-top: 24px; font-size: 12px;
-            color: var(--text-gray-light); letter-spacing: 0.05em;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--text-gray-light);
+            letter-spacing: 0.05em;
+        }
+
+        /* ═══ NOVAS SEÇÕES ESTRATÉGICAS ═══ */
+
+        /* ── SEÇÃO 1: PORTFÓLIO INTERATIVO ── */
+        .portfolio-section {
+            padding: 140px 0;
+            border-top: 1px solid var(--border-metal);
+            position: relative;
+            background: var(--bg-main);
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 56px;
+            flex-wrap: wrap;
+            gap: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .portfolio-filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-metal);
+            color: var(--text-gray);
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: all 0.4s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--bg-main);
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-metal);
+            background: var(--bg-surface);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: transform 0.5s ease, border-color 0.5s ease;
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-6px);
+        }
+
+        .portfolio-img-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+            filter: brightness(0.85) contrast(1.05);
+        }
+
+        .portfolio-card:hover .portfolio-img {
+            transform: scale(1.06);
+            filter: brightness(0.95) contrast(1.08);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(7, 7, 7, 0.95) 0%, rgba(7, 7, 7, 0.3) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 36px;
+            transition: background 0.4s ease;
+        }
+
+        .portfolio-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .portfolio-title {
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-location {
+            font-size: 13px;
+            color: var(--text-gray-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 300;
+        }
+
+        /* ── SEÇÃO 2: DEPOIMENTOS E PROVA SOCIAL ── */
+        .testimonials-section {
+            padding: 140px 0;
+            border-top: 1px solid var(--border-metal);
+            background: var(--bg-surface-2);
+            position: relative;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 64px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .testimonials-header .section-label {
+            justify-content: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-metal);
+            padding: 40px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: border-color 0.4s ease, transform 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(200, 169, 126, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-quote {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            font-weight: 300;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-top: 1px solid var(--border-metal-2);
+            padding-top: 24px;
+        }
+
+        .author-info h4 {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .author-info p {
+            font-size: 12px;
+            color: var(--text-gray-light);
+            margin-top: 2px;
+        }
+
+        .author-badge {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid rgba(200, 169, 126, 0.3);
+        }
+
+        .trust-banner {
+            border: 1px solid var(--border-metal);
+            background: var(--bg-surface);
+            padding: 32px 48px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .trust-metrics {
+            display: flex;
+            gap: 48px;
+        }
+
+        .metric-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .metric-icon {
+            color: var(--accent);
+        }
+
+        .metric-text span {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        .metric-text label {
+            font-size: 12px;
+            color: var(--text-gray-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ── SEÇÃO 3: ATELIÊ DE MATERIAIS ── */
+        .materials-section {
+            padding: 140px 0;
+            border-top: 1px solid var(--border-metal);
+            position: relative;
+            background: var(--bg-main);
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .material-card {
+            background: var(--bg-surface-2);
+            border: 1px solid var(--border-metal);
+            padding: 36px 28px;
+            border-radius: 4px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s ease;
+        }
+
+        .material-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-surface);
+            transform: translateY(-6px);
+        }
+
+        .material-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            letter-spacing: 0.15em;
+        }
+
+        .material-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .material-desc {
+            font-size: 13px;
+            color: var(--text-gray-light);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ── SEÇÃO 4: ÁREA DO ARQUITETO ── */
+        .architect-section {
+            padding: 140px 0;
+            border-top: 1px solid var(--border-metal);
+            background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-main) 100%);
+            position: relative;
+        }
+
+        .architect-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .architect-content {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+
+        .architect-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .arch-feature-item {
+            border-left: 2px solid var(--accent);
+            padding-left: 16px;
+        }
+
+        .arch-feature-item h4 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .arch-feature-item p {
+            font-size: 13px;
+            color: var(--text-gray-light);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .architect-card-right {
+            background: var(--bg-surface-2);
+            border: 1px solid var(--border-metal);
+            padding: 48px;
+            border-radius: 4px;
+            position: relative;
+            opacity: 0;
+            transform: translateX(40px);
+        }
+
+        .architect-card-right h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .architect-card-right p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        /* ── SEÇÃO 5: FAQ ACORDEÃO ── */
+        .faq-section {
+            padding: 140px 0;
+            border-top: 1px solid var(--border-metal);
+            background: var(--bg-main);
+            position: relative;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 64px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .faq-header .section-label {
+            justify-content: center;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-metal);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 28px 0;
+            background: transparent;
+            border: none;
+            color: var(--text-white);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--border-metal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+            transition: transform 0.4s ease, background-color 0.4s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background: var(--accent);
+            color: var(--bg-main);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+        }
+
+        .faq-answer-inner {
+            padding-bottom: 28px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        /* ── SEÇÃO 6: RODAPÉ INSTITUCIONAL COMPLETO (FOOTER) ── */
+        .footer-section {
+            background: var(--bg-surface-2);
+            border-top: 1px solid var(--border-metal);
+            padding: 100px 0 40px;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 64px;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand h3 {
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-gray-light);
+            font-weight: 300;
+            max-width: 320px;
+            margin-bottom: 28px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border-metal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-column h4 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+            color: var(--text-white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-info-item {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-gray-light);
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .footer-info-item strong {
+            color: var(--text-white);
+            display: block;
+            font-weight: 400;
+            margin-bottom: 2px;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border-metal-2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 12px;
+            color: var(--text-gray-light);
+            font-weight: 300;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            color: var(--text-gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent);
         }
 
         /* ═══ RESPONSIVE ═══ */
         @media (max-width: 1024px) {
-            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-            .pillar-item:nth-child(2) { border-right: none; }
-            .pillar-item:nth-child(1),
-            .pillar-item:nth-child(2) { border-bottom: 1px solid var(--border-metal); }
-            .about-grid { grid-template-columns: 1fr; gap: 60px; }
-            .about-image-overlay {
-                position: relative; bottom: auto; left: auto;
-                width: 100%; margin-top: -40px;
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .process-grid { grid-template-columns: repeat(3, 1fr); row-gap: 48px; }
-            .process-grid::before { display: none; }
+
+            .pillar-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .pillar-item:nth-child(1),
+            .pillar-item:nth-child(2) {
+                border-bottom: 1px solid var(--border-metal);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .about-image-overlay {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                width: 100%;
+                margin-top: -40px;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: 48px;
+            }
+
+            .process-grid::before {
+                display: none;
+            }
         }
+
         @media (max-width: 768px) {
-            .overlay-gradient { background: linear-gradient(180deg, rgba(7,7,7,0.4) 0%, rgba(7,7,7,0.92) 100%); }
-            .content-container { justify-content: flex-end; padding-bottom: 12vh; }
-            .btn-primary { width: 100%; justify-content: center; }
-            .cursor { display: none; }
-            * { cursor: auto; }
-            .pillars-grid { grid-template-columns: 1fr; }
-            .pillar-item { border-right: none; border-bottom: 1px solid var(--border-metal); padding: 28px 24px; }
-            .pillar-item:last-child { border-bottom: none; }
-            .about-section { padding: 80px 0; }
-            .stats-row { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-            .process-section { padding: 80px 0; }
-            .process-grid { grid-template-columns: 1fr 1fr; row-gap: 40px; }
-            .process-header { margin-bottom: 48px; }
-            .cta-section { padding: 80px 0; }
-            .btn-whatsapp { width: 100%; justify-content: center; }
+            .overlay-gradient {
+                background: linear-gradient(180deg, rgba(7, 7, 7, 0.4) 0%, rgba(7, 7, 7, 0.92) 100%);
+            }
+
+            .content-container {
+                justify-content: flex-end;
+                padding-bottom: 12vh;
+            }
+
+            .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cursor {
+                display: none;
+            }
+
+            * {
+                cursor: auto;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillar-item {
+                border-right: none;
+                border-bottom: 1px solid var(--border-metal);
+                padding: 28px 24px;
+            }
+
+            .pillar-item:last-child {
+                border-bottom: none;
+            }
+
+            .about-section {
+                padding: 80px 0;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+
+            .process-section {
+                padding: 80px 0;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 40px;
+            }
+
+            .process-header {
+                margin-bottom: 48px;
+            }
+
+            .cta-section {
+                padding: 80px 0;
+            }
+
+            .btn-whatsapp {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .portfolio-section,
+            .testimonials-section,
+            .materials-section,
+            .architect-section,
+            .faq-section,
+            .footer-section {
+                padding: 80px 0;
+            }
+
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .architect-features {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-banner {
+                padding: 28px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .trust-metrics {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
-        @media (max-width: 480px) {
-            .process-grid { grid-template-columns: 1fr; }
+
+        /* ═══ CABEÇALHO FLUTUANTE (FLOATING HEADER / NAVBAR) ═══ */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9990;
+            padding: 24px 0;
+            transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .site-header.scrolled {
+            padding: 16px 0;
+            background-color: rgba(7, 7, 7, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom-color: var(--border-metal);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .header-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(16px, 1.3vw, 20px);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--text-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-logo .logo-accent {
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            transition: color 0.3s ease;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .header-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--accent);
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            min-height: 44px;
+        }
+
+        .header-cta-btn:hover {
+            background: var(--accent);
+            color: var(--bg-main);
+            box-shadow: 0 0 20px var(--accent-dim);
+        }
+
+        /* Mobile Hamburger Trigger */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            width: 44px;
+            height: 44px;
+            position: relative;
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hamburger-line {
+            width: 24px;
+            height: 2px;
+            background-color: var(--text-white);
+            transition: transform 0.4s ease, opacity 0.3s ease, background-color 0.3s ease;
+        }
+
+        .mobile-menu-btn.active .line-1 {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--accent);
+        }
+
+        .mobile-menu-btn.active .line-2 {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .line-3 {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--accent);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(7, 7, 7, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 9995;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 10%;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(24px, 6vw, 36px);
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            min-height: 48px;
+            line-height: 48px;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .mobile-menu-footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-metal);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--text-gray-light);
+        }
+
+        /* ═══ BOTÃO FLUTUANTE DO WHATSAPP ═══ */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 9990;
+            text-decoration: none;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            animation: whatsappPulse 3s infinite;
+        }
+
+        .floating-whatsapp svg {
+            width: 32px;
+            height: 32px;
+            fill: #FFFFFF;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.12);
+            box-shadow: 0 14px 35px rgba(37, 211, 102, 0.5);
+            animation: none;
+        }
+
+        @keyframes whatsappPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+            }
+            70% {
+                box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Responsive Navbar & WhatsApp adjustments */
+        @media (max-width: 1024px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                bottom: 24px;
+                right: 24px;
+                width: 54px;
+                height: 54px;
+            }
+
+            .floating-whatsapp svg {
+                width: 28px;
+                height: 28px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="noise"></div>
     <div class="cursor" id="cursor"></div>
+
+    <!-- ═══ CABEÇALHO FLUTUANTE (FLOATING HEADER / NAVBAR) ═══ -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="#" class="header-logo" data-hover="true">
+                <span>ATELIÊ</span>
+                <span class="logo-accent">//</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav>
+                <ul class="desktop-nav">
+                    <li><a href="#sobre" class="nav-link" data-hover="true">Sobre</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-hover="true">Projetos</a></li>
+                    <li><a href="#materiais" class="nav-link" data-hover="true">Materiais</a></li>
+                    <li><a href="#arquitetos" class="nav-link" data-hover="true">Arquitetos</a></li>
+                    <li><a href="#faq" class="nav-link" data-hover="true">FAQ</a></li>
+                    <li><a href="#contato" class="header-cta-btn" data-hover="true">Solicitar Orçamento</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Hamburger Trigger -->
+            <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir Menu">
+                <span class="hamburger-line line-1"></span>
+                <span class="hamburger-line line-2"></span>
+                <span class="hamburger-line line-3"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay (Off-Canvas) -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <ul class="mobile-nav-links">
+            <li><a href="#sobre" class="mobile-nav-link">01. Sobre Nós</a></li>
+            <li><a href="#portfolio" class="mobile-nav-link">02. Projetos</a></li>
+            <li><a href="#materiais" class="mobile-nav-link">03. Materiais</a></li>
+            <li><a href="#arquitetos" class="mobile-nav-link">04. Arquitetos</a></li>
+            <li><a href="#faq" class="mobile-nav-link">05. FAQ</a></li>
+            <li><a href="#contato" class="mobile-nav-link" style="color:var(--accent)">06. Contato VIP</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <div>Ateliê de Móveis Planejados de Alto Padrão</div>
+            <div>(74) 99118-7363 · contato@atelieplanejados.com.br</div>
+        </div>
+    </div>
+
+    <!-- ═══ BOTÃO FLUTUANTE DO WHATSAPP ═══ -->
+    <a href="https://wa.me/5574991187363?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20m%C3%B3veis%20planejados." 
+       class="floating-whatsapp" 
+       target="_blank" 
+       rel="noopener" 
+       aria-label="Atendimento via WhatsApp"
+       data-hover="true">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
 
     <main>
 
@@ -478,7 +1739,11 @@
         <section class="hero-track">
             <div class="hero-sticky">
                 <div class="video-container" id="video-wrapper">
-                    <div id="scrolly-video" style="width:100%;height:100%;position:absolute;top:0;left:0;"></div>
+                    <img id="hero-img-start" src="assets/raw_files/frameFinal.jpeg"
+                        alt="Cozinha Planejada - Frame Inicial"
+                        style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:1;">
+                    <img id="hero-img-end" src="assets/raw_files/frameFinal.jpeg" alt="Cozinha Planejada - Frame Final"
+                        style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:2;opacity:0;">
                 </div>
                 <div class="overlay-gradient"></div>
                 <div class="overlay-vignette"></div>
@@ -488,12 +1753,18 @@
                     <h1 class="headline font-display">
                         <span class="line"><span class="line-inner">Onde cada</span></span>
                         <span class="line"><span class="line-inner">detalhe é uma</span></span>
-                        <span class="line"><span class="line-inner"><span class="accent-word">obra-prima.</span></span></span>
+                        <span class="line"><span class="line-inner"><span
+                                    class="accent-word">obra-prima.</span></span></span>
                     </h1>
-                    <p class="description">Projetos exclusivos que unem arquitetura de interiores, marcenaria de precisão e acabamentos nobres — para quem não aceita o comum.</p>
+                    <p class="description">Projetos exclusivos que unem arquitetura de interiores, marcenaria de
+                        precisão e acabamentos nobres — para quem não aceita o comum.</p>
                     <a href="#contato" class="btn-primary" data-hover="true">
                         <span>Solicitar Projeto Exclusivo</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -505,31 +1776,56 @@
                 <div class="pillars-grid">
                     <div class="pillar-item">
                         <div class="pillar-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z" />
+                            </svg>
                         </div>
                         <h3 class="pillar-title font-display">Materiais Premium</h3>
-                        <p class="pillar-desc">MDF de alta densidade, acabamentos lacados, pedras naturais e ferragens importadas de primeira linha.</p>
+                        <p class="pillar-desc">MDF de alta densidade, acabamentos lacados, pedras naturais e ferragens
+                            importadas de primeira linha.</p>
                     </div>
                     <div class="pillar-item">
                         <div class="pillar-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-1.6 1.6a2.4 2.4 0 0 1-3.4 0L2.7 6.7a2.4 2.4 0 0 1 0-3.4l1.6-1.6a2.4 2.4 0 0 1 3.4 0Z"/><path d="m14.5 12.8 2 2"/><path d="m11.8 10 2 2"/><path d="m9 7.3 2 2"/><path d="m6.3 4.5 2 2"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-1.6 1.6a2.4 2.4 0 0 1-3.4 0L2.7 6.7a2.4 2.4 0 0 1 0-3.4l1.6-1.6a2.4 2.4 0 0 1 3.4 0Z" />
+                                <path d="m14.5 12.8 2 2" />
+                                <path d="m11.8 10 2 2" />
+                                <path d="m9 7.3 2 2" />
+                                <path d="m6.3 4.5 2 2" />
+                            </svg>
                         </div>
                         <h3 class="pillar-title font-display">Projeto Sob Medida</h3>
-                        <p class="pillar-desc">Cada milímetro é pensado para o seu espaço. Nada genérico, tudo exclusivo e personalizado.</p>
+                        <p class="pillar-desc">Cada milímetro é pensado para o seu espaço. Nada genérico, tudo exclusivo
+                            e personalizado.</p>
                     </div>
                     <div class="pillar-item">
                         <div class="pillar-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                                <path d="m9 12 2 2 4-4" />
+                            </svg>
                         </div>
                         <h3 class="pillar-title font-display">Garantia Estendida</h3>
-                        <p class="pillar-desc">Qualidade que se prova no tempo. Garantia sólida e acompanhamento pós-entrega em cada projeto.</p>
+                        <p class="pillar-desc">Qualidade que se prova no tempo. Garantia sólida e acompanhamento
+                            pós-entrega em cada projeto.</p>
                     </div>
                     <div class="pillar-item">
                         <div class="pillar-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                            </svg>
                         </div>
                         <h3 class="pillar-title font-display">Design Autoral</h3>
-                        <p class="pillar-desc">Projetos concebidos por designers especializados em ambientes de alto padrão e arquitetura contemporânea.</p>
+                        <p class="pillar-desc">Projetos concebidos por designers especializados em ambientes de alto
+                            padrão e arquitetura contemporânea.</p>
                     </div>
                 </div>
             </div>
@@ -541,30 +1837,40 @@
                 <div class="about-grid">
                     <div class="about-left">
                         <div class="section-label">Sobre Nós</div>
-                        <h2 class="section-title font-display">Não fabricamos móveis.<br>Construímos <span style="color:var(--accent)">legados.</span></h2>
-                        <p class="section-text">Somos uma marcenaria de alto padrão que nasceu da obsessão por perfeição. Cada projeto carrega anos de experiência em design de interiores, engenharia de precisão e a curadoria mais exigente de materiais do mercado.</p>
-                        <p class="section-text" style="margin-bottom:0">Nossos clientes não compram móveis — eles investem em ambientes que valorizam seu patrimônio e elevam sua qualidade de vida.</p>
+                        <h2 class="section-title font-display">Não fabricamos móveis.<br>Construímos <span
+                                style="color:var(--accent)">legados.</span></h2>
+                        <p class="section-text">Somos uma marcenaria de alto padrão que nasceu da obsessão por
+                            perfeição. Cada projeto carrega anos de experiência em design de interiores, engenharia de
+                            precisão e a curadoria mais exigente de materiais do mercado.</p>
+                        <p class="section-text" style="margin-bottom:0">Nossos clientes não compram móveis — eles
+                            investem em ambientes que valorizam seu patrimônio e elevam sua qualidade de vida.</p>
                         <div class="stats-row">
                             <div class="stat-item">
-                                <div class="stat-number font-display" data-target="15">0<span class="accent">+</span></div>
+                                <div class="stat-number font-display" data-target="15">0<span class="accent">+</span>
+                                </div>
                                 <div class="stat-label">Anos de mercado</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number font-display" data-target="500">0<span class="accent">+</span></div>
+                                <div class="stat-number font-display" data-target="500">0<span class="accent">+</span>
+                                </div>
                                 <div class="stat-label">Projetos entregues</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number font-display" data-target="98">0<span class="accent">%</span></div>
+                                <div class="stat-number font-display" data-target="98">0<span class="accent">%</span>
+                                </div>
                                 <div class="stat-label">Clientes satisfeitos</div>
                             </div>
                         </div>
                     </div>
                     <div class="about-right">
-                        <img src="assets/raw_files/frameFinal.jpeg" alt="Cozinha planejada de alto padrão com acabamentos em madeira nobre e bancada em pedra natural" class="about-image-main" loading="lazy">
+                        <img src="assets/raw_files/frameFinal.jpeg"
+                            alt="Cozinha planejada de alto padrão com acabamentos em madeira nobre e bancada em pedra natural"
+                            class="about-image-main" loading="lazy">
                         <div class="about-image-overlay">
                             <div class="accent-line"></div>
                             <h4 class="font-display">Qualidade em cada detalhe</h4>
-                            <p>Cada elemento dos nossos móveis passa por rigoroso controle de qualidade — do corte à montagem final no seu ambiente.</p>
+                            <p>Cada elemento dos nossos móveis passa por rigoroso controle de qualidade — do corte à
+                                montagem final no seu ambiente.</p>
                         </div>
                     </div>
                 </div>
@@ -576,34 +1882,375 @@
             <div class="section-wrapper">
                 <div class="process-header">
                     <div class="section-label">Nosso Processo</div>
-                    <h2 class="section-title font-display">Do sonho à realidade<br>em <span style="color:var(--accent)">5 etapas.</span></h2>
-                    <p class="section-text">Um método refinado para garantir que cada centímetro do seu projeto seja impecável.</p>
+                    <h2 class="section-title font-display">Do sonho à realidade<br>em <span
+                            style="color:var(--accent)">5 etapas.</span></h2>
+                    <p class="section-text">Um método refinado para garantir que cada centímetro do seu projeto seja
+                        impecável.</p>
                 </div>
                 <div class="process-grid">
                     <div class="process-step">
                         <div class="process-step-number font-display">01</div>
                         <h3 class="process-step-title font-display">Briefing</h3>
-                        <p class="process-step-desc">Entendemos o seu estilo de vida, necessidades e sonhos para o ambiente.</p>
+                        <p class="process-step-desc">Entendemos o seu estilo de vida, necessidades e sonhos para o
+                            ambiente.</p>
                     </div>
                     <div class="process-step">
                         <div class="process-step-number font-display">02</div>
                         <h3 class="process-step-title font-display">Projeto 3D</h3>
-                        <p class="process-step-desc">Criamos visualizações fotorrealistas para você aprovar cada detalhe antes da produção.</p>
+                        <p class="process-step-desc">Criamos visualizações fotorrealistas para você aprovar cada detalhe
+                            antes da produção.</p>
                     </div>
                     <div class="process-step">
                         <div class="process-step-number font-display">03</div>
                         <h3 class="process-step-title font-display">Produção</h3>
-                        <p class="process-step-desc">Fabricação em maquinário de última geração com controle de qualidade em cada etapa.</p>
+                        <p class="process-step-desc">Fabricação em maquinário de última geração com controle de
+                            qualidade em cada etapa.</p>
                     </div>
                     <div class="process-step">
                         <div class="process-step-number font-display">04</div>
                         <h3 class="process-step-title font-display">Montagem</h3>
-                        <p class="process-step-desc">Equipe especializada instala seu projeto com precisão milimétrica no local.</p>
+                        <p class="process-step-desc">Equipe especializada instala seu projeto com precisão milimétrica
+                            no local.</p>
                     </div>
                     <div class="process-step">
                         <div class="process-step-number font-display">05</div>
                         <h3 class="process-step-title font-display">Entrega</h3>
-                        <p class="process-step-desc">Revisão final completa e acompanhamento pós-entrega para sua total satisfação.</p>
+                        <p class="process-step-desc">Revisão final completa e acompanhamento pós-entrega para sua total
+                            satisfação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SEÇÃO 1: PORTFÓLIO INTERATIVO / PROJETOS ENTREGUES ═══ -->
+        <section class="portfolio-section" id="portfolio">
+            <div class="section-wrapper">
+                <div class="portfolio-header">
+                    <div>
+                        <div class="section-label">Acervo de Obras</div>
+                        <h2 class="section-title font-display" style="margin-bottom:0">Projetos Selecionados</h2>
+                    </div>
+                    <div class="portfolio-filters">
+                        <button class="filter-btn active" data-filter="all" data-hover="true">Todos os Ambientes</button>
+                        <button class="filter-btn" data-filter="cozinhas" data-hover="true">Cozinhas</button>
+                        <button class="filter-btn" data-filter="closets" data-hover="true">Closets & Suítes</button>
+                        <button class="filter-btn" data-filter="living" data-hover="true">Living</button>
+                        <button class="filter-btn" data-filter="integrados" data-hover="true">Ambientes Integrados</button>
+                    </div>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-card" data-category="cozinhas" data-hover="true">
+                        <div class="portfolio-img-wrapper">
+                            <img src="C:\Users\SERGIO\.gemini\antigravity-ide\brain\df3cce21-8b6f-4945-a78a-a5e34976f86a\portfolio_cozinha_luxo_1790349999710.jpg"
+                                alt="Cozinha de Alto Padrão" class="portfolio-img" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Cozinhas · Coleção Mármore & Laca</span>
+                            <h3 class="portfolio-title font-display">Residência Horizon</h3>
+                            <div class="portfolio-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Condomínio Alphaville</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-category="closets" data-hover="true">
+                        <div class="portfolio-img-wrapper">
+                            <img src="C:\Users\SERGIO\.gemini\antigravity-ide\brain\df3cce21-8b6f-4945-a78a-a5e34976f86a\portfolio_closet_luxo_1790350037744.jpg"
+                                alt="Closet Executivo de Luxo" class="portfolio-img" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Closets & Suítes · Vidro Bronze e Iluminação LED</span>
+                            <h3 class="portfolio-title font-display">Master Suite Closet</h3>
+                            <div class="portfolio-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Penthouse Jardins</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-category="living" data-hover="true">
+                        <div class="portfolio-img-wrapper">
+                            <img src="C:\Users\SERGIO\.gemini\antigravity-ide\brain\df3cce21-8b6f-4945-a78a-a5e34976f86a\portfolio_living_luxo_1790350067026.jpg"
+                                alt="Living Contemporâneo com Painel em Lareira" class="portfolio-img" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Living · Painéis Ripados & Metalizato</span>
+                            <h3 class="portfolio-title font-display">Atmosphere Living</h3>
+                            <div class="portfolio-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Residencial Villa Solaia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-category="integrados" data-hover="true">
+                        <div class="portfolio-img-wrapper">
+                            <img src="C:\Users\SERGIO\.gemini\antigravity-ide\brain\df3cce21-8b6f-4945-a78a-a5e34976f86a\portfolio_integrado_luxo_1790350102522.jpg"
+                                alt="Ambientes Integrados de Conceito Aberto" class="portfolio-img" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Ambientes Integrados · Lâminas de Madeira Nobre</span>
+                            <h3 class="portfolio-title font-display">Conceito Gourmet Open Space</h3>
+                            <div class="portfolio-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Fazenda Boa Vista</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SEÇÃO 2: PROVA SOCIAL E DEPOIMENTOS ═══ -->
+        <section class="testimonials-section">
+            <div class="section-wrapper">
+                <div class="testimonials-header">
+                    <div class="section-label">Prova Social & Relatos</div>
+                    <h2 class="section-title font-display">Vozes de quem vivencia<br>a nossa <span style="color:var(--accent)">excelência.</span></h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"A precisão do acabamento e o cumprimento rigoroso dos prazos superaram completamente as expectativas no projeto da minha residência no Alphaville. Um nível de acabamento verdadeiramente internacional."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="font-display">Dra. Beatriz Montebello</h4>
+                                <p>Proprietária · Residencial Alphaville</p>
+                            </div>
+                            <span class="author-badge">Cliente</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"Como arquiteto especializado em alto padrão, preciso de uma marcenaria que respeite milimetricamente o projeto 3D executivo. Eles entregam uma fidelidade construtiva impecável e ferragens de primeiríssima linha."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="font-display">Arq. Marcus Vinícius</h4>
+                                <p>Studio MV Arquitetura</p>
+                            </div>
+                            <span class="author-badge">Parceiro</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"A curadoria de lâminas de madeira e os acabamentos em laca acetinada transformaram o conceito da cobertura. É gratificante ver o brilho no olhar dos meus clientes ao verem o resultado pronto."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="font-display">Des. Renata Silveira</h4>
+                                <p>Silveira Interiores</p>
+                            </div>
+                            <span class="author-badge">Designer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-banner">
+                    <div class="trust-metrics">
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 8v4l3 3"></path>
+                                </svg>
+                            </div>
+                            <div class="metric-text">
+                                <span>100% Pontual</span>
+                                <label>Entregas no Prazo</label>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="metric-text">
+                                <span>Selo Gold 5★</span>
+                                <label>Nível de Satisfação</label>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <div class="metric-text">
+                                <span>5 Anos</span>
+                                <label>Garantia Estrutural</label>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contato" class="btn-primary" data-hover="true" style="opacity:1; transform:none;">
+                        <span>Conhecer o Ateliê</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SEÇÃO 3: ATELIÊ DE MATERIAIS E TECNOLOGIA ═══ -->
+        <section class="materials-section" id="materiais">
+            <div class="section-wrapper">
+                <div class="process-header" style="opacity:1; transform:none;">
+                    <div class="section-label">Mostruário Premium & Tecnologia</div>
+                    <h2 class="section-title font-display">A Engenharia por trás do <span style="color:var(--accent)">Luxo.</span></h2>
+                    <p class="section-text">Curadoria internacional de componentes, acabamentos nobres e fabricação com tolerância zero para imperfeições.</p>
+                </div>
+
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <div class="material-number">01 / ENGENHARIA ALEMÃ & ITALIANA</div>
+                        <h3 class="material-title font-display">Ferragens de Alta Precisão</h3>
+                        <p class="material-desc">Sistemas de amortecimento pneumático, dobradiças ocultas e corrediças de extração total com suporte para até 70kg e movimento ultrasuave.</p>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="material-number">02 / PINTURA AUTOMOTIVA & ROBÓTICA</div>
+                        <h3 class="material-title font-display">Acabamentos em Laca Nobre</h3>
+                        <p class="material-desc">Processo de pintura em cabines pressurizadas com micro-polimento, resultando em lâminas de laca foscas toque-de-seda ou alto brilho espelhado.</p>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="material-number">03 / SUSTENTABILIDADE & CURADORIA</div>
+                        <h3 class="material-title font-display">Lâminas de Madeira Nobre</h3>
+                        <p class="material-desc">Lâminas naturais de Freijó, Nogueira e Carvalho Americano selecionadas com veios contínuos e tratamento térmico contra umidade.</p>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="material-number">04 / CORTE CNC MILIMÉTRICO</div>
+                        <h3 class="material-title font-display">Usinagem CNC de Alta Precisão</h3>
+                        <p class="material-desc">Corte robotizado de painéis com precisão de décimos de milímetro, garantindo alinhamento perfeito de frestas e folgas nulas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SEÇÃO 4: ÁREA DO ARQUITETO & PARCEIROS ═══ -->
+        <section class="architect-section" id="arquitetos">
+            <div class="section-wrapper">
+                <div class="architect-grid">
+                    <div class="architect-content">
+                        <div class="section-label">Área do Arquiteto & Interior Designer</div>
+                        <h2 class="section-title font-display">Sua visão criativa traduzida sem <span style="color:var(--accent)">concessões.</span></h2>
+                        <p class="section-text">Somos a extensão técnica do seu escritório de arquitetura. Entendemos a linguagem dos detalhes executivos e valorizamos a fidelidade ao projeto 3D.</p>
+
+                        <div class="architect-features">
+                            <div class="arch-feature-item">
+                                <h4 class="font-display">Fidelidade ao 3D</h4>
+                                <p>Respeito rigoroso às especificações de cores, espessuras e iluminação.</p>
+                            </div>
+                            <div class="arch-feature-item">
+                                <h4 class="font-display">Acompanhamento Técnico</h4>
+                                <p>Engenheiro dedicado no local para conferência de prumadas e pontos elétricos.</p>
+                            </div>
+                            <div class="arch-feature-item">
+                                <h4 class="font-display">Amostrário Físico</h4>
+                                <p>Envio de mala com amostras de laqueados, madeiras e vidros para reunião de aprovação.</p>
+                            </div>
+                            <div class="arch-feature-item">
+                                <h4 class="font-display">Pontualidade Restrita</h4>
+                                <p>Cronograma executivo amarrado com penalidade por dia de atraso.</p>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/5574991187363?text=Ol%C3%A1%2C%20sou%20arquiteto(a)%2Fdesigner%20e%20gostaria%20de%20cadastrar%20meu%20escrit%C3%B3rio%20de%20parceria."
+                            class="btn-whatsapp" target="_blank" rel="noopener" data-hover="true">
+                            <span>Cadastrar Escritório Parceiro</span>
+                        </a>
+                    </div>
+
+                    <div class="architect-card-right">
+                        <div class="accent-line"></div>
+                        <h3 class="font-display">Atendimento VIP para Profissionais</h3>
+                        <p>Acesse o nosso canal exclusivo para escritórios de arquitetura e receba suporte dedicado no desenvolvimento de detalhamentos técnicos complexos.</p>
+                        <ul style="list-style: none; margin-bottom: 32px; color: var(--text-gray-light); font-size: 14px;">
+                            <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Compatibilização de projetos estruturais
+                            </li>
+                            <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Suporte para perfis LED embutidos e calhas técnicas
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 10px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Condições e prazos prioritários de produção
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SEÇÃO 5: PERGUNTAS FREQUENTES (FAQ) ═══ -->
+        <section class="faq-section" id="faq">
+            <div class="section-wrapper">
+                <div class="faq-header">
+                    <div class="section-label">Tire Suas Dúvidas</div>
+                    <h2 class="section-title font-display">Perguntas Frequentes</h2>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" data-hover="true">
+                            <span>Qual é o prazo médio de fabricação e entrega dos móveis?</span>
+                            <div class="faq-icon">+</div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                O prazo médio varia de 35 a 50 dias úteis a partir da aprovação do projeto executivo final. Definimos um cronograma transparente com datas exatas para fabricação, transporte e montagem final.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-hover="true">
+                            <span>Como funciona a garantia dos móveis e das ferragens?</span>
+                            <div class="faq-icon">+</div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Oferecemos 5 anos de garantia estrutural para os painéis de madeira e MDF. As ferragens importadas (marcas líderes alemãs e italianas) acompanham a garantia vitalícia ou de 10 anos oferecida pelos próprios fabricantes.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-hover="true">
+                            <span>Vocês atendem projetos em outras cidades ou estados?</span>
+                            <div class="faq-icon">+</div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Sim. Possuímos logística própria especializada para atendimento em todo o país e execução de projetos de alto padrão em residências de praia, campo ou grandes centros urbanos.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-hover="true">
+                            <span>Já possuo o projeto feito por meu arquiteto. Vocês executam?</span>
+                            <div class="faq-icon">+</div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Perfeitamente. Fazemos a leitura do seu projeto executivo 3D e pranchas detalhadas, realizando a compatibilização técnica dos materiais e enviando o orçamento sem custo.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -614,10 +2261,16 @@
             <div class="section-wrapper">
                 <div class="cta-content">
                     <div class="section-label">Vamos Conversar</div>
-                    <h2 class="section-title font-display">Seu ambiente merece<br>o <span style="color:var(--accent)">extraordinário.</span></h2>
-                    <p class="section-text">Fale diretamente com nosso time de especialistas. Receba uma consultoria exclusiva e sem compromisso para o seu projeto.</p>
-                    <a href="https://wa.me/5574991187363?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20m%C3%B3veis%20planejados." class="btn-whatsapp" target="_blank" rel="noopener" data-hover="true">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <h2 class="section-title font-display">Seu ambiente merece<br>o <span
+                            style="color:var(--accent)">extraordinário.</span></h2>
+                    <p class="section-text">Fale diretamente com nosso time de especialistas. Receba uma consultoria
+                        exclusiva e sem compromisso para o seu projeto.</p>
+                    <a href="https://wa.me/5574991187363?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20m%C3%B3veis%20planejados."
+                        class="btn-whatsapp" target="_blank" rel="noopener" data-hover="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
                         <span>Falar com Especialista</span>
                     </a>
                     <p class="cta-trust">Atendimento humanizado · Resposta em até 2 horas</p>
@@ -625,12 +2278,80 @@
             </div>
         </section>
 
+        <!-- ═══ SEÇÃO 6: RODAPÉ INSTITUCIONAL COMPLETO (FOOTER) ═══ -->
+        <footer class="footer-section">
+            <div class="section-wrapper">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <h3 class="font-display">ATELIÊ MÓVEIS PLANEJADOS</h3>
+                        <p>Engenharia de precisão, arquitetura autoral e os materiais mais nobres para ambientes de alto padrão.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon" data-hover="true" aria-label="Instagram">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            </a>
+                            <a href="#" class="social-icon" data-hover="true" aria-label="Pinterest">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </a>
+                            <a href="#" class="social-icon" data-hover="true" aria-label="LinkedIn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="font-display">Navegação</h4>
+                        <ul class="footer-links">
+                            <li><a href="#sobre" data-hover="true">Sobre o Ateliê</a></li>
+                            <li><a href="#portfolio" data-hover="true">Projetos Selecionados</a></li>
+                            <li><a href="#materiais" data-hover="true">Materiais & Tecnologia</a></li>
+                            <li><a href="#arquitetos" data-hover="true">Área do Arquiteto</a></li>
+                            <li><a href="#faq" data-hover="true">Perguntas Frequentes</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="font-display">Ambientes</h4>
+                        <ul class="footer-links">
+                            <li><a href="#portfolio" data-hover="true">Cozinhas de Luxo</a></li>
+                            <li><a href="#portfolio" data-hover="true">Closets & Suítes</a></li>
+                            <li><a href="#portfolio" data-hover="true">Living & Painéis</a></li>
+                            <li><a href="#portfolio" data-hover="true">Ambientes Integrados</a></li>
+                            <li><a href="#portfolio" data-hover="true">Espaços Gourmet</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="font-display">Ateliê & Showroom</h4>
+                        <div class="footer-info-item">
+                            <strong>Localização</strong>
+                            Av. Principal dos Condomínios, 1000 — Jardins / Alphaville
+                        </div>
+                        <div class="footer-info-item">
+                            <strong>Horário de Atendimento</strong>
+                            Segunda a Sexta: 08:00 às 19:00<br>Sábados: 09:00 às 14:00 (Com agendamento)
+                        </div>
+                        <div class="footer-info-item">
+                            <strong>Contato VIP</strong>
+                            (74) 99118-7363 · contato@atelieplanejados.com.br
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div>© 2026 Ateliê Móveis Planejados. Todos os direitos reservados. Design autoral de alto padrão.</div>
+                    <div class="footer-bottom-links">
+                        <a href="#">Política de Privacidade</a>
+                        <a href="#">Termos de Garantia</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </main>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
@@ -654,30 +2375,58 @@
         addEventListener('DOMContentLoaded', () => {
             const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.5 } });
             tl.to('.eyebrow', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.2 }, 0.2)
-              .to('.line-inner', { opacity: 1, y: 0, stagger: 0.15 }, 0.4)
-              .to('.description', { opacity: 1, y: 0, filter: 'blur(0px)' }, 0.8)
-              .to('.btn-primary', { opacity: 1, y: 0 }, 1.0);
+                .to('.line-inner', { opacity: 1, y: 0, stagger: 0.15 }, 0.4)
+                .to('.description', { opacity: 1, y: 0, filter: 'blur(0px)' }, 0.8)
+                .to('.btn-primary', { opacity: 1, y: 0 }, 1.0);
         });
 
-        // ── ScrollyVideo ──
-        new ScrollyVideo({
-            scrollyVideoContainer: "scrolly-video",
-            src: "assets/raw_files/videoHeroV2.mp4",
-            trackScroll: true,
-            transitionSpeed: 8,
-            cover: true, sticky: false, full: false,
-            useWebCodecs: true,
-        });
+        // ── Native Video Scroll Control (Bidirectional GSAP ScrollTrigger) ──
+        const video = document.getElementById('hero-video');
+
+        if (video) {
+            video.addEventListener('loadedmetadata', initVideoScroll);
+            if (video.readyState >= 1) {
+                initVideoScroll();
+            }
+        }
+
+        function initVideoScroll() {
+            if (!video.duration) return;
+
+            const videoState = { currentTime: 0 };
+
+            ScrollTrigger.create({
+                trigger: ".hero-track",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true,
+                onUpdate: (self) => {
+                    const targetTime = self.progress * video.duration;
+                    gsap.to(videoState, {
+                        currentTime: targetTime,
+                        duration: 0.1,
+                        ease: "none",
+                        onUpdate: () => {
+                            if (video.fastSeek) {
+                                video.fastSeek(videoState.currentTime);
+                            } else {
+                                video.currentTime = videoState.currentTime;
+                            }
+                        }
+                    });
+                }
+            });
+        }
 
         // ── Hero Parallax ──
         const videoWrapper = document.getElementById('video-wrapper');
         gsap.timeline({
             scrollTrigger: { trigger: ".hero-track", start: "top top", end: "bottom bottom", scrub: 1 }
         })
-        .to(videoWrapper, { scale: 1.08, ease: "none" }, 0)
-        .to(".content-container", { y: -100, ease: "none" }, 0)
-        .to(".headline", { scale: 0.95, transformOrigin: "left center", opacity: 0.5, ease: "none" }, 0)
-        .to("#overlay-darken", { backgroundColor: "rgba(7, 7, 7, 0.7)", ease: "none" }, 0);
+            .to(videoWrapper, { scale: 1.08, ease: "none" }, 0)
+            .to(".content-container", { y: -100, ease: "none" }, 0)
+            .to(".headline", { scale: 0.95, transformOrigin: "left center", opacity: 0.5, ease: "none" }, 0)
+            .to("#overlay-darken", { backgroundColor: "rgba(7, 7, 7, 0.7)", ease: "none" }, 0);
 
         // ═══ SECTION 2 ANIMATIONS ═══
 
@@ -735,11 +2484,140 @@
             scrollTrigger: { trigger: '.process-grid', start: 'top 85%', toggleActions: 'play none none reverse' }
         });
 
+        // ═══ ANIMAÇÕES E INTERAÇÕES DAS NOVAS SEÇÕES ═══
+
+        // 1. Portfólio Interativo
+        gsap.to('.portfolio-header', {
+            opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: '.portfolio-section', start: 'top 80%', toggleActions: 'play none none reverse' }
+        });
+
+        gsap.to('.portfolio-card', {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+            scrollTrigger: { trigger: '.portfolio-grid', start: 'top 80%', toggleActions: 'play none none reverse' }
+        });
+
+        // Filtro de Portfólio
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                portfolioCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filterValue === 'all' || filterValue === category) {
+                        gsap.to(card, { display: 'block', opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
+                    } else {
+                        gsap.to(card, { opacity: 0, scale: 0.95, duration: 0.3, ease: 'power2.in', onComplete: () => {
+                            card.style.display = 'none';
+                        }});
+                    }
+                });
+            });
+        });
+
+        // 2. Testemunhos & Prova Social
+        gsap.to('.testimonials-header', {
+            opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: '.testimonials-section', start: 'top 80%', toggleActions: 'play none none reverse' }
+        });
+
+        gsap.to('.testimonial-card', {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+            scrollTrigger: { trigger: '.testimonials-grid', start: 'top 80%', toggleActions: 'play none none reverse' }
+        });
+
+        gsap.to('.trust-banner', {
+            opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: '.trust-banner', start: 'top 85%', toggleActions: 'play none none reverse' }
+        });
+
+        // 3. Materiais
+        gsap.to('.material-card', {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+            scrollTrigger: { trigger: '.materials-grid', start: 'top 85%', toggleActions: 'play none none reverse' }
+        });
+
+        // 4. Área do Arquiteto
+        gsap.to('.architect-content', {
+            opacity: 1, x: 0, duration: 1.2, ease: 'power3.out',
+            scrollTrigger: { trigger: '.architect-section', start: 'top 75%', toggleActions: 'play none none reverse' }
+        });
+
+        gsap.to('.architect-card-right', {
+            opacity: 1, x: 0, duration: 1.2, ease: 'power3.out', delay: 0.2,
+            scrollTrigger: { trigger: '.architect-section', start: 'top 75%', toggleActions: 'play none none reverse' }
+        });
+
+        // 5. FAQ Accordion
+        gsap.to('.faq-header', {
+            opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: '.faq-section', start: 'top 80%', toggleActions: 'play none none reverse' }
+        });
+
+        gsap.to('.faq-item', {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+            scrollTrigger: { trigger: '.faq-container', start: 'top 85%', toggleActions: 'play none none reverse' }
+        });
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const faqAnswer = faqItem.querySelector('.faq-answer');
+                const isOpen = faqItem.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                if (!isOpen) {
+                    faqItem.classList.add('active');
+                    faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
+                }
+            });
+        });
+
         // CTA
         gsap.to('.cta-content', {
             opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
             scrollTrigger: { trigger: '.cta-section', start: 'top 80%', toggleActions: 'play none none reverse' }
         });
+
+        // ═══ FLOATING HEADER & MOBILE MENU LOGIC ═══
+        const headerEl = document.getElementById('site-header');
+        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                headerEl.classList.add('scrolled');
+            } else {
+                headerEl.classList.remove('scrolled');
+            }
+        });
+
+        if (mobileMenuBtn && mobileMenuOverlay) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenuBtn.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
     </script>
 </body>
+
 </html>
